@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>tradeway</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<style type="text/css">
+		.hide {
+   position: absolute;
+   top: -9999px;
+   left: -9999px;
+}
+	</style>
+<!--===============================================================================================-->
+</head>
+<body  style="background-color: #f2f2f2;">
+	
+	<div style="float: left;padding-left:3%">
+					<button id="home" class="contact100-btn" style="margin-top:25px;margin-right: 25px">
+						<span>
+							<i class="fa fa-home  m-r-6" aria-hidden="true"></i>
+							home
+						</span>
+					</button>
+					
+</div>
+<div id="form" >
+
+
+
+<div style="float: right;">
+					<button id="update" class="contact100-btn" style="margin-top:25px;margin-right: 25px">
+						<span>
+							<i class="fa fa-user-o m-r-6" aria-hidden="true"></i>
+							Selling Product
+						</span>
+					</button>
+					
+</div>
+
+	<div class="container-contact100">
+
+		<div class="wrap-contact100" >
+			
+				<span class="contact100-form-title">
+					Product
+				</span>
+				<div class="wrap-input100 validate-input" data-vali
+				date="Please enter your name">
+					<input class="input100" type="number" id="number" name="name" placeholder="number of products">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input" data-validate="Please enter your name">
+					<input class="input100" type="text" id="pname" name="name" placeholder="Product Name">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Please enter your name">
+					<input class="input100" type="text" id="company" name="name" placeholder="Company">
+					<span class="focus-input100"></span>
+				</div>
+
+				
+				<div class="wrap-input100 validate-input" data-validate="Please enter your name">
+					<input class="input100" type="mail" id="mail" name="name" placeholder=" mail id">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input" data-validate="Please enter your name">
+					<input class="input100" type="number" id="mobile" name="name" placeholder="mobile number">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn" id="add">
+						<span>
+							<i class="fa fa-plus m-r-6" aria-hidden="true"></i>
+							Add
+						</span>
+					</button>
+				</div>
+			
+		</div>
+	</div>
+		
+	</div>
+
+<div class="container-contact100">
+<div class="wrap-contact100" id="details" >
+<span class="contact100-form-title" id="title">
+					
+				</span>
+				<center>
+			<button id="download" class="contact100-btn" style="margin-top:25px;margin-right: 25px">
+						<span>
+							<i class="fa fa-user-o m-r-6" aria-hidden="true"></i>
+							Download
+						</span>
+					</button>
+					</center>
+		</div>
+
+</div>
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="./node_modules/crypto-js/crypto-js.js"></script>
+
+<script src="./node_modules/web3/dist/web3.min.js"></script>
+<script src="./node_modules/file-saver/FileSaver.js"></script>
+	<script src="js/main.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+function randomString(len, charSet) {
+    charSet = charSet || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var randomString = '';
+    for (var i = 0; i < len; i++) {
+        var randomPoz = Math.floor(Math.random() * charSet.length);
+        randomString += charSet.substring(randomPoz,randomPoz+1);
+    }
+    return randomString;
+}
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+$( "#details" ).addClass( "hide");
+console.log(marketing);
+
+	$("#add").click(function(){
+
+
+var randomValue = randomString(10);
+id=web3.eth.defaultAccount+$('#pname').val()+randomValue;
+var pids=new Array();
+
+for (var i = 0;i< $("#number").val(); i++) {
+	var pid="0x"+CryptoJS.enc.Hex.stringify(CryptoJS.SHA1(id+i.toString()));
+	pids.push(pid.toString());
+	console.log(pid.toString());
+marketing.setProduct.sendTransaction(pid.toString(),$("#pname").val(),$("#company").val(),$("#mobile").val(),$("#mail").val(),transactionObj);
+}
+
+
+
+console.log(pids);
+
+console.log("done");
+   // window.location.href = "index.html";
+$( "#form" ).addClass( "hide");
+$("#details").removeClass("hide");
+$("#title").html($("#pname").val());
+
+
+ $("#download").click(function(){
+ 	var text="Company name - "+$("#company").val()+"\n product name "+$("#pname").val()+"\nTotal number of items"+$("#number").val().toString()+"\n Item ids are\n"+"-----------------------------------------------------\n";
+ 	for (var i = 0; i <$(number).val(); i++) {
+ 		text=text+(i+1).toString()+". "+pids[i].toString()+"\n";
+ 	}
+
+var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
+var d = new Date();
+saveAs(blob, d.getTime().toString()+".txt");
+
+
+ });
+
+
+
+	
+	});
+	$("#home").click(function(){
+
+    window.location.href = "index.html";
+	});
+	
+$("#update").click(function(){
+
+    window.location.href = "update.html";
+	});
+  gtag('config', 'UA-23581568-13');
+
+
+</script>
+
+</body>
+</html>

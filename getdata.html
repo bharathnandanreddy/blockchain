@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>tradeway</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body  style="background-color: #f2f2f2;">
+
+
+<div style="float: left;padding-left:3%">
+					<button id="home" class="contact100-btn" style="margin-top:25px;margin-right: 25px">
+						<span>
+							<i class="fa fa-home  m-r-6" aria-hidden="true"></i>
+							home
+						</span>
+					</button>
+					
+</div>
+	<div class="container-contact100">
+
+		<div class="wrap-contact100">
+			
+				<span class="contact100-form-title">
+					<h1>Owner Details</h1>
+				</span>
+				
+				product name:<span id ="pname"></span><br>
+				Company :<span id="company"></span><br>
+				owner name:<span id="oname"></span><br>
+				contact :<span id="contact"></span><br><br>
+				<hr>
+				<span class="contact100-form-title">
+				<h2>product hierarchy</h2>
+			</span>
+				<span class="contact100-form-title" style="margin-top:20px">
+					<div align="center" >
+					<table id="chain">
+					
+				
+									
+				</table>
+				</div>
+				</span>
+
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="./node_modules/web3/dist/web3.min.js"></script>
+	<script src="js/main.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  var adds;
+window.onload = function () {
+    var url = document.location.href,
+        params = url.split('?')[1].split('&'),
+        data = {}, tmp;
+    for ( i = 0, l = params.length; i < l; i++) {
+         tmp = params[i].split('=');
+        data[tmp[0]] = tmp[1];
+    }
+  
+
+
+console.log(marketing);
+
+
+marketing.getProductDetails(data.name,function(err,res){
+
+	if(!err){
+			
+			x=res[3];
+
+			for (	 i = 0; i < x.length; i++) {
+
+
+
+
+				if(i==x.length-1){
+						marketing.getOwner(x[x.length-1],transactionObj,function(error,result){
+	if(!err){
+			$("#pname").html(res[1]);
+			$("#company").html(res[2]);
+			$("#oname").html(result[0]);
+			$("#contact").html(result[1]);
+
+$("#chain").append('<tr align=center><td><img src="images/arrow.png" height="100px" ></td>'+"</tr><tr align=center><td><p> Owner<h3>"+result[0]+"</h3></p></td></tr>");
+	}
+
+	else{
+		console.error("inner"+error);
+	}
+});
+				}
+
+				else{
+
+
+					if(i==0){
+
+marketing.getOwner(x[i],transactionObj,function(error,result){
+	if(!err){
+			
+			
+			{
+			
+			$("#chain").append('<tr align=center><td><img src="images/arrow.png" height="100px" > '+"</tr><tr align=center><td><p>Manufacturer<h3>"+result[0]+"</h3></p></td></tr>");
+
+}
+
+	}
+
+	else{
+		console.error("inner"+error);
+	}
+});
+
+				
+			}
+			   
+else{
+					marketing.getOwner(x[i],transactionObj,function(error,result){
+	if(!err){
+			
+			
+			{
+			
+			$("#chain").append('<tr align=center><td><img src="images/arrow.png" height="100px" ></td> '+"</tr><tr align=center><td><h3>"+result[0]+"</h3></td></tr>");
+
+}
+
+	}
+
+	else{
+		console.error("inner"+error);
+	}
+});
+}
+				}
+
+			
+
+			}
+
+
+		
+	}
+	else{
+
+		console.error("outer"+err);
+	}
+});
+
+
+console.log("done");
+   
+}
+	$("#home").click(function(){
+
+    window.location.href = "index.html";
+	});
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>
